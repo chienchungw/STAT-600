@@ -31,7 +31,7 @@ lm_r = function(y, x){
   CovMtx = sigmasq_hat * solve(t(X) %*% X)
   se = sqrt(diag(CovMtx))
 
-  t = qt(0.975, n - 2, TRUE, FALSE)
+  t = qt(0.975, n - 2)
   ci = matrix(c(beta - t * se, beta + t * se), 2, 2)
 
   return(list("coefficients" = beta, "SE" = se, "CI" = ci,
