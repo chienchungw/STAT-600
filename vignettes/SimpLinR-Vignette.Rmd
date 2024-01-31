@@ -1,0 +1,34 @@
+---
+title: "SimpLinR-Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{SimpLinR-Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+Implementation of simple linear models.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SimpLinR)
+```
+
+```{r}
+# Example for using SimpLinR
+
+n = 5
+x = rnorm(n, 0, 1)
+y = 5 + 3 * x + rnorm(n, 0, 1)
+fit.r = lm_r(y, x)
+fit.cpp = lm_cpp(y, x)
+print(fit.cpp)
+```
